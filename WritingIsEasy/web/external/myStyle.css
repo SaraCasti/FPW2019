@@ -1,0 +1,31 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25-mar-2019, 12.51.34
+    Author     : Sary
+*/
+
+body {
+    font-size: 14px;
+    font-family: "Open Sans", "Arial", sans-serif;
+    color: black;
+}
+
+#logo {
+    background-color: #1c345a;
+}
+
+#header, #footer {
+    color: white;
+}
+
+.current_page_item {
+    font-weight: bold;
+}
+
+div#content > h2{
+    color: #9e1616;
+}
