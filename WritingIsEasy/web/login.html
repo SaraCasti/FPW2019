@@ -6,19 +6,47 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
+        <title>WritingIsEasy - Login</title>
+        <meta charset="UTF-8">        
+        <meta name="author" content="Sara Casti">
+        <meta name="keywords" content="html, css, fpw, writingiseasy">
+        <meta name="description" content="Esempio form login"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div>
             <h3>Login</h3>
             <form action="login.html" method="post">
-                <label for="user"> Username </label>
+                <label for="user"> Username: </label>
                 <input type="text" name="user" id="user">
                 <br>
-                <label for="psw"> Password </label>
+                <label for="psw"> Password: </label>
                 <input type="password" name="psw" id="psw">
+                <br>
+                <label for="profileImg"> Your Profile Image: </label>
+                <input type="url" name="profileImg" id="profileImg">
+                <br>
+                <!-- Radio button -->
+                <label for="M">M </label>
+                <input type="radio" id="M" name="sex">
+                <label for="F">F</label>
+                <input type="radio" id="F" name="sex">
+                <br>
+                <!-- Inserimento di una descrizione -->
+                <label>Inserisci una descrizione qui: </label>
+                <br>
+                <textarea>..Insert your text here..s</textarea>
+                <br>
+                <h4>Scegli la categoria del tuo libro</h4>
+                <!-- Scelta multipla bassa-cardinalità-->
+                <label for="sport">Sport:</label>
+                <input type="checkbox" name="category" id="sport" value="sport">
+                <br>
+                <label>Science:</label>
+                <input type="checkbox" name="category" id="science" value="science">  
+                <br>
+                <label for="sport">Romanzo:</label>
+                <input type="checkbox" name="category" id="romanzo" value="romanzo">
                 <br>
                 <input type="submit" value="Invia">
                     
