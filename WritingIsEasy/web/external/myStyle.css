@@ -26,6 +26,30 @@ body {
     font-weight: bold;
 }
 
-div#content > h2{
+div#content h2{
     color: #9e1616;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #1c345a;
+}
+
+a {
+    color: #9e1616;
+}
+
+a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+/*
+a:visited {
+    color: darkblue;
+}
+*/
+
+a[href="studente_esami.html"]{
+    color: #1c345a;  
 }
