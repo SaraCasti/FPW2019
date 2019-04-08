@@ -8,6 +8,7 @@ and open the template in the editor.
     Author     : Sary
 */
 
+
 body {
     font-size: 14px;
     font-family: "Open Sans", "Arial", sans-serif;
@@ -15,15 +16,37 @@ body {
 }
 
 #logo {
-    background-color: #1c345a;
+    background-color: lightcyan;
 }
 
 #header, #footer {
-    color: white;
+    color: darkblue;
+    border: 2px solid blue;
+    width: 100%;
 }
 
 .current_page_item {
     font-weight: bold;
+    border: 2px dotted #9e1616;
+    display: inline;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: lightcoral;
+    border-radius: 10px;
+    width: 15%;
+}
+
+.page_item {
+    border: 2px dotted #9e1616;
+    display: inline;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    width: 15%;
 }
 
 div#content h2{
@@ -53,3 +76,23 @@ a:visited {
 a[href="studente_esami.html"]{
     color: #1c345a;  
 }
+
+#myHeader {
+    background-color: lightgoldenrodyellow; 
+    width: 100%;
+}
+
+header {
+    border: 2px solid darkcyan;
+    margin-top: 10px; 
+    width: 100%;
+}
+
+#banner {
+    width: 100%;
+}
+
+#logo_img {
+    width: 50%;
+}
+
