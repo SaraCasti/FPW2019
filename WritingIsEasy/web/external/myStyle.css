@@ -8,6 +8,9 @@ and open the template in the editor.
     Author     : Sary
 */
 
+*{
+    box-sizing: border-box;
+}
 
 body {
     font-size: 14px;
@@ -28,7 +31,7 @@ body {
 .current_page_item {
     font-weight: bold;
     border: 2px dotted #9e1616;
-    display: inline;
+    display: inline-block;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
@@ -40,7 +43,7 @@ body {
 
 .page_item {
     border: 2px dotted #9e1616;
-    display: inline;
+    display: inline-block;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
@@ -92,7 +95,38 @@ header {
     width: 100%;
 }
 
+nav{
+    width: 100%;
+    height: 20%;
+}
+
 #logo_img {
     width: 50%;
 }
 
+#side-bar{
+    border: red 2px solid;
+    width: 20%;
+    float: left;
+}
+
+#content {
+    margin-left: 20%;
+    border: #1c345a 2px solid;
+    float: left;  
+}
+
+
+footer {
+    clear: both;
+    position: fixed;
+    bottom: 0px;
+    background-color: white;
+}
+
+@media only screen and (min-width: 100px)
+{
+    *{
+        font-size: 50px;
+    }
+}
