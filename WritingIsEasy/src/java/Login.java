@@ -31,17 +31,44 @@ public class Login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            //Recuperare i dati dal form
             String usernameFromForm = request.getParameter("user");
-            if(usernameFromForm != null)
+            String passwordFromForm = request.getParameter("psw");
+            String urlFromForm = request.getParameter("profileImg");
+            String stringaVuota = "";
+            
+            if(usernameFromForm != null && passwordFromForm != null &&
+               urlFromForm != null)
             {
                 System.out.println(usernameFromForm);
+                System.out.println(passwordFromForm);
+                System.out.println(urlFromForm);
+                
+                
+                if(usernameFromForm.equals(stringaVuota));
+                {
+                    System.out.print("Attenzione stringa vuota");
+                }   
+                
+                //Salvarli nel model o fare i controlli sui dati
+                // ---
+                // ----
+                
+                //Passare i valori alla jsp
+                request.setAttribute("userJsp", usernameFromForm);
+                request.setAttribute("passJsp", passwordFromForm);
+                request.setAttribute("urlJsp", urlFromForm);
+                
             }
             else
             {
                System.out.println("Il tuo username è null");
+               request.setAttribute("userJsp", stringaVuota);
+               request.setAttribute("passJsp", stringaVuota);
+               request.setAttribute("urlJsp", stringaVuota);
             }
             
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("pippo").forward(request, response);
             
         }
     }

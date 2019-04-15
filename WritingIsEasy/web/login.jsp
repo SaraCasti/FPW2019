@@ -17,16 +17,17 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="external/myStyle.css" media="screen">
     </head>
     <body>
+        <jsp:include page="header.jsp"/>
         <div>
             <h3>Login</h3>
             <form action="login.html" method="post">
-                <label for="user"> Username: </label>
-                <input type="text" name="user" id="user">
+                <label for="user"> Username: ${userJsp} </label>
+                <input type="text" name="user" id="user" value="${userJsp}">
                 <br>
-                <label for="psw"> Password: </label>
+                <label for="psw"> Password: ${passJsp} </label>
                 <input type="password" name="psw" id="psw">
                 <br>
-                <label for="profileImg"> Your Profile Image: </label>
+                <label for="profileImg"> Your Profile Image: ${urlJsp} </label>
                 <input type="url" name="profileImg" id="profileImg">
                 <br>
                 <!-- Radio button -->
