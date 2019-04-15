@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -39,7 +41,7 @@ and open the template in the editor.
                 <textarea>..Insert your text here..s</textarea>
                 <br>
                 <h4>Scegli la categoria del tuo libro</h4>
-                <!-- Scelta multipla bassa-cardinalità-->
+                <!-- Scelta multipla bassa-cardinalitÃ -->
                 <label for="sport">Sport:</label>
                 <input type="checkbox" name="category" id="sport" value="sport">
                 <br>
