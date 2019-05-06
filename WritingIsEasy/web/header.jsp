@@ -22,7 +22,18 @@
             <li class="current_page_item">Home page</li>
             <li class="page_item"><a href="libri.html">I miei libri</a></li>
             <li class="page_item"><a href="http://www.google.it" target="_blank">Cerca su google</a></li>
-            <li class="page_item"><a href="login.html">Login</a></li>
+            <li class="page_item">
+                <c:if test="${user==null}">
+                    <a href="login.html">
+                        Login 
+                    </a>
+                </c:if>
+                <c:if test="${user!=null}">
+                    <a href="logout.html">
+                        ${user.getUsername()}, Logout 
+                    </a>
+                </c:if>
+            </li>
             <li class="page_item"><a href="#gossip">Gossip</a></li>
         </ul>
     </nav>

@@ -6,17 +6,17 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Sary
  */
-public class Index extends HttpServlet {
+public class logout extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,14 +32,21 @@ public class Index extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            System.out.print("Sono la servlet Index, mappata su url pippo");
-            //Logica di gestione della home
-            LibroFactory bookFact = LibroFactory.getInstance();
-            ArrayList<Libro> books = bookFact.getAllBooks();
             
-            //Setto le variabili 
-            request.setAttribute("allBooks", books);
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            //Crea o prende sessione creata in precedenza
+            HttpSession session = request.getSession(false);
+            
+            if(session.getAttribute("user")!=null)
+            {
+                //Distruggo la sessione nel caso in cui questa sia attiva
+                session.invalidate();
+                request.getRequestDispatcher("login.html").forward(request, response);
+            }
+            else
+            {
+                request.getRequestDispatcher("index.html").forward(request,response);
+            }
+            
         }
     }
 

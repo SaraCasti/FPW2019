@@ -7,14 +7,17 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Sary
  */
+//@WebServlet(name = "Login", urlPatterns= {"/login.html"})
 public class Login extends HttpServlet {
 
     /**
@@ -37,39 +40,52 @@ public class Login extends HttpServlet {
             String urlFromForm = request.getParameter("profileImg");
             String stringaVuota = "";
             
-            if(usernameFromForm != null && passwordFromForm != null &&
-               urlFromForm != null)
+            //Crea o prende sessione creata in precedenza
+            HttpSession session = request.getSession(false);
+            
+            if(session!=null && session.getAttribute("user")==null)
             {
-                System.out.println(usernameFromForm);
-                System.out.println(passwordFromForm);
-                System.out.println(urlFromForm);
-                
-                
-                if(usernameFromForm.equals(stringaVuota));
+                if(usernameFromForm != null && passwordFromForm != null &&
+                    urlFromForm != null)
                 {
-                    System.out.print("Attenzione stringa vuota");
-                }   
-                
-                //Salvarli nel model o fare i controlli sui dati
-                // ---
-                // ----
-                
-                //Passare i valori alla jsp
-                request.setAttribute("userJsp", usernameFromForm);
-                request.setAttribute("passJsp", passwordFromForm);
-                request.setAttribute("urlJsp", urlFromForm);
-                
+
+                     if(usernameFromForm.equals(stringaVuota));
+                     {
+                         System.out.print("Attenzione stringa vuota");
+                     }
+
+                     UtenteFactory usrFact = UtenteFactory.getInstance();
+                     if(usrFact.login(usernameFromForm, passwordFromForm))
+                     {
+                         Utente u = usrFact.getUser(usernameFromForm, passwordFromForm);
+                         session.setAttribute("user", u);
+                         request.getRequestDispatcher("index.html").forward(request, response);
+                     }
+                     else
+                     {
+                         System.out.print("utente non registrato");
+
+                         //Passare i valori alla jsp
+                         request.setAttribute("userJsp", usernameFromForm);
+                         request.setAttribute("passJsp", passwordFromForm);
+                         request.setAttribute("urlJsp", urlFromForm);
+                         request.getRequestDispatcher("login.jsp").forward(request, response);
+                     } 
+                }
+                else
+                {
+                   System.out.println("Il tuo username è null");
+                   request.setAttribute("userJsp", stringaVuota);
+                   request.setAttribute("passJsp", stringaVuota);
+                   request.setAttribute("urlJsp", stringaVuota);
+
+                   request.getRequestDispatcher("login.jsp").forward(request, response);
+                } 
             }
             else
             {
-               System.out.println("Il tuo username è null");
-               request.setAttribute("userJsp", stringaVuota);
-               request.setAttribute("passJsp", stringaVuota);
-               request.setAttribute("urlJsp", stringaVuota);
+                request.getRequestDispatcher("index.html").forward(request, response);
             }
-            
-            request.getRequestDispatcher("pippo").forward(request, response);
-            
         }
     }
 
