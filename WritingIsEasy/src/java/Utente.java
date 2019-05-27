@@ -9,6 +9,7 @@
  * @author Sary
  */
 public class Utente {
+    private int codU;
     private String username;
     private String password;
     private String email;
@@ -68,5 +69,19 @@ public class Utente {
      */
     public void setEta(int eta) {
         this.eta = eta;
+    }
+
+    /**
+     * @return the codU
+     */
+    public int getCodU() {
+        return codU;
+    }
+
+    /**
+     * @param codU the codU to set
+     */
+    public void setCodU(int codU) {
+        this.codU = codU;
     }
 }
