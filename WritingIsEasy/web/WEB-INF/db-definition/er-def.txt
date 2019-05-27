@@ -1,0 +1,4 @@
+Libro (isbn, nome, editore, prezzo, autore)
+Utente (codU, username, password, email, eta)
+
+Rel. Utente - Libro 1-n 
