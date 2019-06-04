@@ -100,6 +100,34 @@ public class UtenteFactory {
         //L'utente con username urs e password psw non esiste
         return is_logged;
     }
+    //Ricerca tra gli utenti quelli con l'username che inizia con la stringa specificata in 'query_str'
+    //restituisce la lista degli utenti che rendono vera la query
+    public ArrayList<Utente> searchUtenteByUsername(String query_str){
+        ArrayList<Utente> usersList= new ArrayList<Utente>();
+        
+        try{
+            Connection conn = DbConnection.getInstance().getConnection();
+            //Vado a prendermi tutti gli utenti che contengono nello username
+            // la stringa passata dall'utente
+            String sql = "Select * from utente where username like '"+query_str+"%'";
+            Statement stmt = conn.createStatement();
+            ResultSet set = stmt.executeQuery(sql);
+            while(set.next()){
+                String username = set.getString("username");
+                Utente u = new Utente();
+                u.setUsername(username);
+                //Aggiungo utente alla lista
+                usersList.add(u);
+                
+            }
+            stmt.close();
+            conn.close();
+        
+        }catch(SQLException e){
+            Logger.getLogger(UtenteFactory.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return usersList;
+    }
 
     public Utente getUser(String usr, String psw) {  
         DbConnection connFact = DbConnection.getInstance();
